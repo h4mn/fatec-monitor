@@ -8,6 +8,7 @@ import pandas as pd
 import re
 
 from config import Config
+from data import Avaliacao, Disciplina
 
 class Avaliacao:
     def __init__(self, descricao, data, nota):

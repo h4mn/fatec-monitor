@@ -1,3 +1,4 @@
 
 .env
 doc/temp.md
+__pycache__/
