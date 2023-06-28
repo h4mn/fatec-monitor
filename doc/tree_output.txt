@@ -1,0 +1,27 @@
+fatec-monitor
+|   geckodriver.log
+|   LICENSE
+|   README.md
+|   
++---data
+|       grade.db
+|       testes.html
+|       
++---doc
+|       diagrams.md
+|       requirements.txt
+|       tree_output.txt
+|       
++---src
+|   |   data.py
+|   |   main.py
+|   |   siga.py
+|   |   
+|   \---__pycache__
+|           data.cpython-39.pyc
+|           siga.cpython-39.pyc
+|           
+\---test
+        data_test.py
+        siga_test.py
+        
