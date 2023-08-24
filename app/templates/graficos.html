@@ -1,0 +1,19 @@
+<!-- graficos.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- apresentação -->
+<div class="px-1 my-3">
+    <div class="p-5 text-center rounded-4 cor-bg-secundaria">
+        <i class="bi-mortarboard-fill cor-destaque" style="font-size: 7rem;"></i>
+        <h1 class="display-1 cor-primaria">Gráficos</h1>
+        <p class="col-lg-8 mx-auto fs-5 text-muted">{{ descricao }}</p>
+        <div class="d-inline-flex gap-2 mb-5">
+            <button class="btn btn-primary btn-lg px-4 rounded-pill" type="button">Relatórios</button>
+            <button class="btn btn-outline-secondary btn-lg px-4 rounded-pill" type="button">Gráficos</button>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

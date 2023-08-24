@@ -1,0 +1,107 @@
+<!-- home.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- apresentação -->
+<div class="px-1 my-3">
+    <div class="p-5 text-center rounded-4 cor-bg-secundaria">
+        <i class="bi-mortarboard-fill cor-destaque" style="font-size: 7rem;"></i>
+        <h1 class="display-1 cor-primaria">{{ app }}</h1>
+        <p class="col-lg-8 mx-auto fs-5 text-muted">{{ descricao }}</p>
+        <div class="d-inline-flex gap-2 mb-5">
+            <a id="btn-sincronizar" href="\sincronizar" class="btn btn-primary btn-lg px-4 rounded-pill" type="button">Sincronizar</a>
+            <!-- <button class="btn btn-outline-secondary btn-lg px-4 rounded-pill" type="button">Gráficos</button> -->
+        </div>
+    </div>
+</div>
+
+<!-- disciplinas -->
+<div class="card my-3">
+    <h5 class="card-header">Disciplinas</h5>
+    <div class="card-body">
+        <table class="table">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">Disciplina</th>
+                    <th scope="col">Média</th>
+                    <th scope="col">Faltas</th>
+                    <th scope="col">Frequência</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for disciplina in disciplinas %}
+                <tr>
+                    <th scope="row">{{ disciplina.nome }}</th>
+                    <td>{{ disciplina.media }}</td>
+                    <td>{{ disciplina.faltas }}</td>
+                    <td>{{ disciplina.frequencia }}</td>
+                </tr>
+                <tr class="table-active">
+                    <td colspan="5">
+                        <table class="table mb-0 caption-top">
+                            <caption>Lista de Avaliações</caption>
+                            <thead>
+                                <tr>
+                                    <th>Avaliação</th>
+                                    <th>Data</th>
+                                    <th>Nota</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for avaliacao in disciplina.avaliacoes %}
+                                <tr>
+                                    <td>{{ avaliacao.descricao }}</td>
+                                    <td>{{ avaliacao.data }}</td>
+                                    <td>{{ avaliacao.nota }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    // Função para exibir o indicador de carregamento no botão de sincronização
+    function exibirCarregando() {
+        var btnSincronizar = document.getElementById('btn-sincronizar');
+        btnSincronizar.classList.add('btn-loading');
+        btnSincronizar.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Carregando...';
+    }
+
+    // Função para ocultar o indicador de carregamento no botão de sincronização
+    function ocultarCarregando() {
+        var btnSincronizar = document.getElementById('btn-sincronizar');
+        btnSincronizar.classList.remove('btn-loading');
+        btnSincronizar.innerHTML = 'Sincronizar';
+    }
+
+    // Evento de clique no botão de sincronização
+    document.getElementById('btn-sincronizar').addEventListener('click', function(event) {
+        exibirCarregando();
+    });
+
+    // Atualizar o temporizador e disciplinas quando a página for carregada
+    document.addEventListener('DOMContentLoaded', function() {
+        atualizarPagina();
+    });
+
+    // Função para fazer a solicitação assíncrona ao servidor e atualizar a página
+    function atualizarPagina() {
+        fetch('/seu_endpoint/') // Substitua 'seu_endpoint' pela URL da sua view no Django
+            .then(response => response.json())
+            .then(data => {
+                atualizarTemporizador(data.tempo_decorrido);
+                atualizarDisciplinas(data.disciplinas);
+                ocultarCarregando(); // Oculta o indicador de carregamento após obter as disciplinas
+            })
+            .catch(error => console.error('Erro ao fazer a solicitação:', error));
+    }
+</script>
+
+{% endblock %}

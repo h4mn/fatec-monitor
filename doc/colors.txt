@@ -1,0 +1,16 @@
+/* https://coolors.co/395575-4d7ea8-bad9f5-fff5f5-f5d858 */
+
+/* With # */
+#395575, #4d7ea8, #bad9f5, #fff5f5, #f5d858
+
+/* Object */
+{"YInMn Blue":"395575","Steel blue":"4d7ea8","Uranian Blue":"bad9f5","Snow":"fff5f5","Naples yellow":"f5d858"}
+
+/* XML */
+<palette>
+  <color name="YInMn Blue" hex="395575" r="57" g="85" b="117" />
+  <color name="Steel blzzue" hex="4d7ea8" r="77" g="126" b="168" />
+  <color name="Uranian Blue" hex="bad9f5" r="186" g="217" b="245" />
+  <color name="Snow" hex="fff5f5" r="255" g="245" b="245" />
+  <color name="Naples yellow" hex="f5d858" r="245" g="216" b="88" />
+</palette>

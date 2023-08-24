@@ -31,7 +31,7 @@ class Disciplina:
         pass
 
 
-class Dados:
+class Disciplinas:
     def __init__(self) -> None:
         self.disciplinas = []
 
@@ -45,7 +45,7 @@ class Dados:
 
 class Siga:
     def __init__(self, headless = True) -> None:
-        self.dados = Dados()
+        self.dados = Disciplinas()
         options = Options()
         options.headless = headless
         self.driver = webdriver.Firefox(options=options)        
@@ -59,7 +59,7 @@ class Siga:
         sleep(1)
         pass
     
-    def requisitar(self) -> Dados:
+    def requisitar(self) -> Disciplinas:
         try:
             self.driver.get(Config.SIGAURL_NOTAS)
             html = self.driver.page_source

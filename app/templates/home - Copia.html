@@ -1,0 +1,80 @@
+<!-- home.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- apresentação -->
+<div class="px-1 my-3">
+    <div class="p-5 text-center rounded-4 cor-bg-secundaria">
+        <i class="bi-mortarboard-fill cor-destaque" style="font-size: 7rem;"></i>
+        <h1 class="display-1 cor-primaria">{{ app }}</h1>
+        <p class="col-lg-8 mx-auto fs-5 text-muted">{{ descricao }}</p>
+        <div class="d-inline-flex gap-2 mb-5">
+            <a href="\sincronizar" class="btn btn-primary btn-lg px-4 rounded-pill" type="button">Sincronizar</a>
+            <!-- <button class="btn btn-outline-secondary btn-lg px-4 rounded-pill" type="button">Gráficos</button> -->
+        </div>
+    </div>
+</div>
+
+<!-- disciplinas -->
+<div class="card my-3">
+    <h5 class="card-header">Disciplinas</h5>
+    <div class="card-body">
+        <table class="table">
+            <thead class="table-light">
+              <tr>
+                <th scope="col">Disciplina</th>
+                <th scope="col">Média</th>
+                <th scope="col">Faltas</th>
+                <th scope="col">Frequência</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Laboratório de Engenharia de Software</th>
+                <td>0,0</td>
+                <td>0</td>
+                <td>0,00</td>
+              </tr>
+              <tr class="table-active">
+                <td colspan="5">
+                    <table class="table mb-0 caption-top">
+                        <caption>Lista de Avaliações</caption>
+                        <thead>
+                            <tr>
+                                <th>Avaliação</th>
+                                <th>Data</th>
+                                <th>Nota</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>P1</td>
+                                <td>29/06/2023</td>
+                                <td>9,5</td>
+                            </tr>
+                            <tr>
+                                <td>P2</td>
+                                <td>29/06/2023</td>
+                                <td>9,5</td>
+                            </tr>
+                            <tr>
+                                <td>Trabalho</td>
+                                <td>29/06/2023</td>
+                                <td>9,5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" colspan="2">Eletiva - Linguagem de Programação II - Linguagem C#</th>
+                <td>0,00</td>
+                <td>0</td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

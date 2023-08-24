@@ -1,0 +1,40 @@
+<!-- sidebar -->
+  
+<div class="d-flex flex-column flex-shrink-0 p-3 cor-bg-primaria-dark" style="width: 280px;">
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+        <!-- home -->
+        <li class="nav-item">
+            <a class="nav-link{% if atual == 'Home' %} active{% endif %}"
+            {% if atual == 'home' %}aria-current="page"{% endif %}
+            href="{% url 'home' %}">
+                <i class="bi-house{% if atual == 'Home' %}-fill{% endif %} px-1" style="font-size: 1rem;"></i>
+                Home
+            </a>
+        </li>
+
+        <!-- disciplinas -->
+        <li class="nav-item">
+            <a class="nav-link{% if atual == 'Disciplinas' %} active{% endif %}"
+            {% if atual == 'disciplinas' %}aria-current="page"{% endif %}
+            href="{% url 'disciplinas' %}">
+                <i class="bi-book{% if atual == 'Disciplinas' %}-fill{% endif %} px-1" style="font-size: 1rem;"></i>
+                Disciplinas
+            </a>
+        </li>
+
+        <!-- gráficos -->
+        <li class="nav-item">
+            <a class="nav-link{% if atual == 'Gráficos' %} active{% endif %}"
+            {% if atual == 'graficos' %}aria-current="page"{% endif %}
+            href="{% url 'graficos' %}">
+                <i class="bi-bar-chart-line{% if atual == 'Gráficos' %}-fill{% endif %} px-1" style="font-size: 1rem;"></i>
+                Gráficos
+            </a>
+        </li>
+
+        <!-- outros itens de navegação -->
+
+    </ul>
+</div>
+<div class="b-example-vr"></div>

@@ -1,27 +1,121 @@
 fatec-monitor
-|   geckodriver.log
-|   LICENSE
-|   README.md
-|   
+¦   .env
+¦   .gitignore
+¦   geckodriver.log
+¦   LICENSE
+¦   manage.py
+¦   README.md
+¦   
++---.vscode
+¦       settings.json
+¦       
++---app
+¦   ¦   admin.py
+¦   ¦   apps.py
+¦   ¦   models.py
+¦   ¦   tests.py
+¦   ¦   views.py
+¦   ¦   __init__.py
+¦   ¦   
+¦   +---migrations
+¦   ¦   ¦   0001_initial.py
+¦   ¦   ¦   __init__.py
+¦   ¦   ¦   
+¦   ¦   +---__pycache__
+¦   ¦           0001_initial.cpython-39.pyc
+¦   ¦           __init__.cpython-39.pyc
+¦   ¦           
+¦   +---static
+¦   ¦   ¦   fatec-monitor.css
+¦   ¦   ¦   login.css
+¦   ¦   ¦   sidebars.js
+¦   ¦   ¦   
+¦   ¦   +---bootstrap-icons-1.10.5
+¦   ¦       ¦   bootstrap-icons.css
+¦   ¦       ¦   ...
+¦   ¦       ¦   zoom-out.svg
+¦   ¦       ¦   
+¦   ¦       +---font
+¦   ¦           ¦   bootstrap-icons.css
+¦   ¦           ¦   bootstrap-icons.json
+¦   ¦           ¦   bootstrap-icons.min.css
+¦   ¦           ¦   bootstrap-icons.scss
+¦   ¦           ¦   
+¦   ¦           +---fonts
+¦   ¦                   bootstrap-icons.woff
+¦   ¦                   bootstrap-icons.woff2
+¦   ¦                   
+¦   +---templates
+¦   ¦       autenticar.html
+¦   ¦       base.html
+¦   ¦       disciplinas.html
+¦   ¦       graficos.html
+¦   ¦       home - Copia.html
+¦   ¦       home.html
+¦   ¦       sidebar.html
+¦   ¦       
+¦   +---utils
+¦   ¦   ¦   config.py
+¦   ¦   ¦   data.py
+¦   ¦   ¦   siga.py
+¦   ¦   ¦   __init__.py
+¦   ¦   ¦   
+¦   ¦   +---__pycache__
+¦   ¦           config.cpython-39.pyc
+¦   ¦           data.cpython-39.pyc
+¦   ¦           siga.cpython-39.pyc
+¦   ¦           __init__.cpython-39.pyc
+¦   ¦           
+¦   +---__pycache__
+¦           admin.cpython-39.pyc
+¦           apps.cpython-39.pyc
+¦           models.cpython-39.pyc
+¦           tests.cpython-39.pyc
+¦           views.cpython-39.pyc
+¦           __init__.cpython-39.pyc
+¦           
 +---data
-|       grade.db
-|       testes.html
-|       
+¦       dados_siga.html
+¦       grade.db
+¦       monitor.db
+¦       
 +---doc
-|       diagrams.md
-|       requirements.txt
-|       tree_output.txt
-|       
+¦       colors.txt
+¦       diagrams.md
+¦       okr.md
+¦       requirements.txt
+¦       temp.md
+¦       tree_output.txt
+¦       
 +---src
-|   |   data.py
-|   |   main.py
-|   |   siga.py
-|   |   
-|   \---__pycache__
-|           data.cpython-39.pyc
-|           siga.cpython-39.pyc
-|           
-\---test
-        data_test.py
-        siga_test.py
-        
+¦   ¦   config.py
+¦   ¦   data.py
+¦   ¦   main.py
+¦   ¦   siga.py
+¦   ¦   
+¦   +---__pycache__
+¦           config.cpython-39.pyc
+¦           data.cpython-39.pyc
+¦           siga.cpython-39.pyc
+¦           
++---test
+¦   ¦   data_test.py
+¦   ¦   siga_test.py
+¦   ¦   
+¦   +---__pycache__
+¦           data_test.cpython-39-pytest-7.4.0.pyc
+¦           siga_test.cpython-39-pytest-7.4.0.pyc
+¦           
++---web
+    ¦   asgi.py
+    ¦   settings.py
+    ¦   urls.py
+    ¦   wsgi.py
+    ¦   __init__.py
+    ¦   
+    +---__pycache__
+            settings.cpython-39.pyc
+            urls.cpython-39.pyc
+            wsgi.cpython-39.pyc
+            __init__.cpython-39.pyc
+            

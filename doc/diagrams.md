@@ -4,6 +4,7 @@
 
 | Requisito | Grupo | Descrição | Concluído |
 | --: | :-: | :-- | :-: |
+| In1 | Interface | Interface para navegação dos recursos básicos | - |
 | Re1 | Registro | Automatizar Obtenção de Dados do SIGA | :white_check_mark: |
 | Re2 | Registro | Registrar nota em disciplinas do curso | - |
 | Re3 | Registro | Armazenamento seguro e persistente das informações | - |
@@ -18,7 +19,7 @@
 | An2 | Análise | Visualização de gráficos e representações visuais dos dados | - |
 | Q1 | Qualidade | Tratamento de exceções e validação de entrada de dados | - |
 | M1 | Metas | Capacidade de definir metas de desempenho e rastrear o progresso em relação a elas | - |
-| I1 | Inteligência | Funcionalidade de Feedback e sugestões baseados nas informações extraídas e submetidas ao GPT| - |
+| Ia1 | Inteligência | Funcionalidade de Feedback e sugestões baseados nas informações extraídas e submetidas ao GPT| - |
 | Op1 | Opcional | Interface amigável e intuitiva | :x: |
 | Op2 | Opcional | Configurações personalizáveis, como pesos de notas, critérios de aprovação, etc. | - |
 | Op3 | Opcional | Importação e exportação de dados em formatos comuns (CSV, por exemplo) | - |
@@ -31,26 +32,31 @@
 
 ```mermaid
 graph TD
-    R1[Automatizar Obtenção de Dados do SIGA]
-    R2[Registrar nota em disciplinas do curso]
-    R3[Cálculo de média por disciplina]
-    R4[Cálculo de média geral do curso]
-    R5[Acompanhamento do desempenho acadêmico ao longo do tempo]
-    R6[Geração de estatísticas]
-    R7[Geração de relatórios personalizados]
-    R8[Visualização de gráficos e representações visuais]
-    R20[Definição de metas de desempenho e rastreamento]
+    U[Usuário] ---|Navegar| R10[Interface para navegação]
+    R2 ---|Persistir| BD[Banco de Dados]
+    I1[GPT] ---|Analisar| R5
+    subgraph "G1"
+        R1[Obtenção de Dados do SIGA]
+        R2[Notas e Disciplinas]
+        R3[Relatórios e Gráficos]
 
-    R1 -->|Incluir dados do SIGA| R2
-    R2 -->|Calcular média| R3
-    R2 -->|Calcular média| R4
-    R2 -->|Visualizar desempenho| R5
-    R3 -->|Gerar estatísticas| R6
-    R3 -->|Gerar relatórios| R7
-    R4 -->|Gerar estatísticas| R6
-    R4 -->|Gerar relatórios| R7
-    R5 -->|Visualizar gráficos| R8
-    R5 -->|Definir metas| R20
+        R10 -->|Automatizar| R1
+        R10 -->|Registrar| R2
+        R10 -->|Visualizar| R3        
+    end
+
+    R3 --- R31
+    subgraph "G2"
+        R31[Estatísticas]
+        R20[Definição de Metas]
+        R8[Relatórios e Gráficos]
+        R5[Desempenho]
+
+        R31 -->|Configurar| R20
+        R31 -->|Visualizar| R8
+        R5 -->|Visualizar| R8
+        R31 -->|Gerar| R5
+    end
 
 ```
 
@@ -172,14 +178,16 @@ erDiagram
         int Faltas
         float Frequencia
         float Media
+        date Importado
     }
     AVALIACAO {
         int ID
         string Descricao
-        date Data
+        date Avaliado
         float Nota
+        date Importado
         int DisciplinaID
     }
-    DISCIPLINA ||--|{ AVALIACAO : "contém"
+    DISCIPLINA ||--o{ AVALIACAO : "contém"
 
 ```
